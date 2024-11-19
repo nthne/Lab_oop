@@ -27,6 +27,12 @@ public class Aims {
 		System.out.print("Total Cost is: ");
 		System.out.println(anOrder.totalCost());
 		
+		DigitalVideoDisc dvds[] = new DigitalVideoDisc[20];
+		dvds[0] = dvd1;
+		dvds[1] = dvd2;
+		dvds[2] = dvd3;
+		
+		anOrder.addDigitalVideoDisc(dvds);
 	}
 
 }
