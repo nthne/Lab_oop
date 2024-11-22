@@ -40,35 +40,4 @@ public class Cart {
 		return bd;
 	}
 	
-	public void print() {
-		System.out.println("***********************CART***********************\r\n"
-				+ "Ordered Items:");
-		for (int i = 0; i < qtyOrdered; i++)
-		{
-			System.out.println((i+1) + itemsOrdered[i].toString());			
-		}
-		System.out.println("Total cost: " + totalCost() + " $\n***************************************************");
-		
-	}
-	
-	public void Search_by_ID(int id) {
-		int i = 0;
-		for ( ; i < qtyOrdered; i++)
-			if(itemsOrdered[i].getID() == id) {
-				System.out.println(itemsOrdered[i].toString());
-				break;
-			}
-		if(i == qtyOrdered) System.out.println("No match is found");
-	}
-	
-	public void Search_by_Title(String title) {
-		int i = 0;
-		boolean check = false;
-		for ( ; i < qtyOrdered; i++)
-			if(itemsOrdered[i].isMatch(title) == true) {
-				System.out.println(itemsOrdered[i].toString());
-				check = true;
-			}
-		if(check == false) System.out.println("No match is found");
-	}
 }
