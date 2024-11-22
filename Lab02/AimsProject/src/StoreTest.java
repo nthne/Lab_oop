@@ -19,10 +19,13 @@ public class StoreTest {
 				"Animation", 18.99f);
 		Items.addDVD(dvd3);
 		
+		Items.print();
 		
 		Items.removeDVD(dvd1);
 		Items.removeDVD(dvd2);
 		
+		Items.print();
+
 	}
 
 }

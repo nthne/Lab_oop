@@ -1,32 +1,37 @@
+import java.util.ArrayList;
 
 public class Store {
 	
-	private static final int MAX_NUMBERS_ITEMS = 100;
-	private DigitalVideoDisc itemsInStore[] = 
-			new DigitalVideoDisc[MAX_NUMBERS_ITEMS];
+	private ArrayList<DigitalVideoDisc> itemsInStore = 
+			new ArrayList<>();
 	
-	private int qtyOrdered = 0;
 	public void addDVD(DigitalVideoDisc disc) {
-		if (qtyOrdered < MAX_NUMBERS_ITEMS)
-		{
-			itemsInStore[qtyOrdered] = disc;
-			qtyOrdered++;
-			System.out.println("The disc has been added.");
-		}
-		else System.out.println("The cart is almost full.");
+		
+		itemsInStore.add(disc);
+		System.out.println("The disc has been added.");
 	}
 	public void removeDVD(DigitalVideoDisc disc) {
 		int i = 0;
-		for(; i < qtyOrdered ; i++)
-			if (itemsInStore[i] == disc)
+		for(; i < itemsInStore.size() ; i++)
+			if (itemsInStore.get(i) == disc)
 			{	
-				qtyOrdered--;
-				for(int j = i ; j < qtyOrdered ; j++)
-					itemsInStore[j] = itemsInStore[j+1];
+				itemsInStore.remove(i);
 				System.out.println("The disc has been removed.");
 				break;				
 			}
-		if(i == qtyOrdered) System.out.println("The disc is not in the cart");
+		if(i == itemsInStore.size()) System.out.println("The disc is not in the cart");
 	}
 
+	public void print() {
+		int j = 0;
+		System.out.println("***********************STORE***********************\r\n"
+				+ "Items in Store:");
+		for (DigitalVideoDisc i : itemsInStore)
+		{
+			j++;
+			System.out.println(j + i.toString());			
+		}
+		System.out.println("***************************************************");
+		
+	}
 }
