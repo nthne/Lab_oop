@@ -1,0 +1,7 @@
+- If users choose "Cancel", it will return "You've chosen: No"
+- To customize the options to users:
+	+ Only two options "Yes" and "No": add parameter <JOptionPane.YES_NO_OPTION> in the function 	showConfirmDialog
+	+ Change to "I do" and "I don't": use function showOptionDialog and add two options "I do" and "I don't"
+
+? Phân biệt static với this
+? tại sao lại cần static
