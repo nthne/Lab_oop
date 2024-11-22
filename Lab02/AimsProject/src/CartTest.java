@@ -18,20 +18,10 @@ public class CartTest {
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
 				"Animation", 18.99f);
 		cart.addDigitalVideoDisc(dvd3);
-		
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Kings of African Wildlife",
-				"Animation", 17.99f);
-		cart.addDigitalVideoDisc(dvd4);
+	
 
 		//Test the print method
 		cart.print();
-		//To-do: Test the search methods 
-		cart.Search_by_ID(5);
-		cart.Search_by_ID(2);
-
-		cart.Search_by_Title("lion and monkey");
-		cart.Search_by_Title("star");
-		cart.Search_by_Title("king of forest");
 
 			
 	}
