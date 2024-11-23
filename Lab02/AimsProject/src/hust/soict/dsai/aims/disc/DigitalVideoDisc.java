@@ -81,5 +81,24 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 	}
 	
+	public String toString() {
+		return (". DVD - " + title + " - " + category + " - " 
+				+ director + " - " + length + ": " + cost + " $");
+		
+	}
+	
+	public boolean isMatch(String title) {
+		title = title.toLowerCase();
+		String titles[] = title.split(" ");
+		boolean check = false;
+		title = this.title.toLowerCase();
+		for(String t : titles) {
+			if(title.contains(t)) {
+				check = true;
+				break;
+			}
+		}
+		return(check);
+	}
 	
 }
