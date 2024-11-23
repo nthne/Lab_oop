@@ -1,0 +1,26 @@
+phân biệt 2 loại connect use case
+- included: bắt buộc phải có
+- extend: không có cũng không sao
+ Question:
+  If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+- In Java, it allows some method with the same name but the parameters' type of them must be different and can be distinguished. So in this case, Java don't allow to create two constructor method because 'title' and 'category' have the same type "String". 
+
+Lab03:
+
+   Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd. Compare to an array parameter. What do you prefer in this case?
+- I like add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd.
+- Because, 
+	+ I don't need to add each dvd i created to an array and pass the array to the method.
+	+ I just list all dvds i created to the method.
+
+   After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+- Because in Java, when you pass objects to methods, the method gets a copy of the reference (like a pointer to the original object), not the original reference itself. So when go out of methods, any change in methods not affect to object
+
+   After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+- Because the setTitle methods change title in the original object. 
+
+   Is JAVA a Pass by Value or a Pass by Reference programming language?
+- After two questions above, we can answer that Java pass by Value.
+
+   Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method?
+- I think the return type of this method should be String
