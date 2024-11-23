@@ -19,6 +19,49 @@ public class Cart {
 		}
 		else System.out.println("The cart is almost full.");
 	}
+	
+//	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+//		for(int i = 0; i < dvdList.length; i++)
+//			if (qtyOrdered < MAX_NUMBERS_ORDERED && dvdList[i] != null)
+//		{
+//			itemsOrdered[qtyOrdered] = dvdList[i];
+//			qtyOrdered++;
+//			System.out.println("The disc has been added.");
+//		}
+//		else System.out.println("The cart is almost full or the list is empty.");
+//	
+//	}
+//	
+	public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
+		for(DigitalVideoDisc dvd : dvdList)
+			if (qtyOrdered < MAX_NUMBERS_ORDERED && dvd != null)
+		{
+			itemsOrdered[qtyOrdered] = dvd;
+			qtyOrdered++;
+			System.out.println("The disc has been added.");
+		}
+		else System.out.println("The cart is almost full or no more any disc.");
+	
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2){
+		if (qtyOrdered < MAX_NUMBERS_ORDERED)
+		{
+			itemsOrdered[qtyOrdered] = dvd1;
+			qtyOrdered++;
+			System.out.println("The disc has been added.");
+		}
+		else System.out.println("The cart is almost full.");
+	
+		if (qtyOrdered < MAX_NUMBERS_ORDERED)
+		{
+			itemsOrdered[qtyOrdered] = dvd2;
+			qtyOrdered++;
+			System.out.println("The disc has been added.");
+		}
+		else System.out.println("The cart is almost full.");
+	
+	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		int i = 0;
 		for(; i < qtyOrdered ; i++)
@@ -43,35 +86,4 @@ public class Cart {
 		return bd;
 	}
 	
-	public void print() {
-		System.out.println("***********************CART***********************\r\n"
-				+ "Ordered Items:");
-		for (int i = 0; i < qtyOrdered; i++)
-		{
-			System.out.println((i+1) + itemsOrdered[i].toString());			
-		}
-		System.out.println("Total cost: " + totalCost() + " $\n***************************************************");
-		
-	}
-	
-	public void Search_by_ID(int id) {
-		int i = 0;
-		for ( ; i < qtyOrdered; i++)
-			if(itemsOrdered[i].getID() == id) {
-				System.out.println(itemsOrdered[i].toString());
-				break;
-			}
-		if(i == qtyOrdered) System.out.println("No match is found");
-	}
-	
-	public void Search_by_Title(String title) {
-		int i = 0;
-		boolean check = false;
-		for ( ; i < qtyOrdered; i++)
-			if(itemsOrdered[i].isMatch(title) == true) {
-				System.out.println(itemsOrdered[i].toString());
-				check = true;
-			}
-		if(check == false) System.out.println("No match is found");
-	}
 }
