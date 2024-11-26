@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.cart;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Cart {
 
@@ -100,7 +100,7 @@ public class Cart {
 	public void Search_by_ID(int id) {
 		int i = 0;
 		for ( ; i < qtyOrdered; i++)
-			if(itemsOrdered[i].getID() == id) {
+			if(itemsOrdered[i].getId() == id) {
 				System.out.println(itemsOrdered[i].toString());
 				break;
 			}
