@@ -12,26 +12,6 @@ public class CompactDisc extends Disc implements Playable{
 		return artist;
 	}
 
-	public void addTrack(Track trackName) {
-		
-		boolean check = true;
-		for(Track track : this.tracks) {
-			if(track.getTitle() == trackName.getTitle()) {
-				check = false;
-				System.out.println("The input track is already in the list of tracks.");
-				break;
-			}
-		}
-		if(check == true) this.tracks.add(trackName);
-
-	}
-	
-	public void removeTrack(Track trackName) {
-		
-		boolean check = this.tracks.remove(trackName);
-		if(check == false) System.out.println("The input track is not in the list of tracks.");
-	}
-
 	public int getLength() {
 		
 		int sum = 0;
@@ -42,6 +22,21 @@ public class CompactDisc extends Disc implements Playable{
 
 	}
 	
+	public void addTrack(Track trackName) {
+		if(this.tracks.contains(trackName)) {
+			System.out.println("The input track is already in the list of tracks.");
+		} else {
+			this.tracks.add(trackName);
+			System.out.println("The input track has been added.");
+		}
+	}
+	
+	public void removeTrack(Track trackName) {
+		
+		boolean check = this.tracks.remove(trackName);
+		if(check == false) System.out.println("The input track is not in the list of tracks.");
+	}
+
 	public void play() {
 		 System.out.println("Compact Disc Name: " + this.getTitle());
 		 System.out.println("Artist: " + this.getArtist());
