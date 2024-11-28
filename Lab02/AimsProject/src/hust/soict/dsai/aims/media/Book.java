@@ -22,22 +22,17 @@ public class Book extends Media{
 				check = false;
 				break;
 			}
+		}
 		if(check == true) {
 			authors.add(authorName);
-		}
 		}
 	}
 	
 	public void removeAuthor(String authorName) {
 		
-		for(String author : authors) {
-			if(author == authorName) {
-				authors.remove(authorName);
-				break;
-			}
-		}
+		authors.remove(authorName);
 	}
-
+	
 	public Book() {
 		// TODO Auto-generated constructor stub
 	}

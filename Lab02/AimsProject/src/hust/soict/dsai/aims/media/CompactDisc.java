@@ -3,7 +3,7 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Disc{
+public class CompactDisc extends Disc implements Playable{
 
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
@@ -21,23 +21,15 @@ public class CompactDisc extends Disc{
 				System.out.println("The input track is already in the list of tracks.");
 				break;
 			}
-			if(check == true) this.tracks.add(trackName);
-			
 		}
+		if(check == true) this.tracks.add(trackName);
+
 	}
 	
 	public void removeTrack(Track trackName) {
 		
-		boolean check = true;
-		for(Track track : this.tracks) {
-			if(track.getTitle() == trackName.getTitle()) {
-				check = false;
-				this.tracks.remove(trackName);
-				break;
-			}
-			if(check == true) System.out.println("The input track is not in the list of tracks.");
-			
-		}
+		boolean check = this.tracks.remove(trackName);
+		if(check == false) System.out.println("The input track is not in the list of tracks.");
 	}
 
 	public int getLength() {
@@ -48,6 +40,24 @@ public class CompactDisc extends Disc{
 		}
 		return sum;
 
+	}
+	
+	public void play() {
+		 System.out.println("Compact Disc Name: " + this.getTitle());
+		 System.out.println("Artist: " + this.getArtist());
+		 
+		 System.out.println("There are " + this.tracks.size() + " tracks in the compact disc ");
+		 int i = 1;
+		 for(Track track : this.tracks) {
+			 System.out.print(i + ". \n");
+			 track.play();
+			 i++;
+		 }
+	}
+	
+	public String toString() {
+		return (". DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getArtist() + ": " + this.getCost() + " $");
+		
 	}
 	
 	public CompactDisc(String title) {
@@ -74,5 +84,19 @@ public class CompactDisc extends Disc{
 		this.artist = artist;
 		this.tracks = tracks;
 	}
+	
+	public static void main(String[] args) {
+		
+		CompactDisc CD = new CompactDisc("Huyen", "Quang Hung");
+		Track t = new Track("Troi Trong xanh");
+		CD.addTrack(t);
+		t = new Track("Tinh dau qua chen", 520);
+		CD.addTrack(t);
+		CD.play();
+
+	}
+
 
 }
+
+
