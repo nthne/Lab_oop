@@ -13,16 +13,10 @@ public class Cart {
 	public void addMedia(Media... itemsList) {
 		for(Media add_item : itemsList) {
 			if(add_item == null) continue;
-			boolean check = true;
-			for(Media item : itemsOrdered)
-			{
-				if(item == add_item) {
-					check = false;
-					System.out.println("The item is already in the cart.");
-					break;
-				}
+			if(itemsOrdered.contains(add_item)) {
+				System.out.println("The item is already in the cart.");
 			}
-			if(check == true) {
+			else {
 				itemsOrdered.add(add_item);
 				System.out.println("The item has been added.");
 			}
