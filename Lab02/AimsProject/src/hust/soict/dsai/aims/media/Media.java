@@ -54,6 +54,10 @@ public abstract class Media {
 		return(check);
 	}
 
+	public boolean equals(Media obj) {
+		return (obj.title == this.title);
+	}
+	
 	public Media() {}
 	public Media(String title) {
 		this.title = title;
