@@ -33,8 +33,16 @@ public class Book extends Media{
 		authors.remove(authorName);
 	}
 	
-	public Book() {
-		// TODO Auto-generated constructor stub
+	public String toString() {
+		return (". Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $");
+	}
+	
+	public Book() {}
+	public Book(String title) {
+		super(title);
+	}
+	public Book(String title, String category, float cost) {
+		super(title, category, cost);
 	}
 
 }

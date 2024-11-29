@@ -9,7 +9,21 @@
    If the passing object is not an instance of Media, what happens?
 - We can't call some attributes of Media class (such that title) to compare, check equal.
 
+ Question: Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo()method. You can refer to the Java docs to see the information of this interface.
+ Suppose we are taking this Comparable interface approach.
+   What class should implement the Comparable interface?
+- Should implement the Comparable interface in class Media
 
+   In those classes, how should you implement the compareTo()method be to reflect the ordering that we want? Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+- Answer:
+	public int compareTo(Media media) {   
+		return Comparator.comparing(Media::getCost).thenComparing(Media::getTitle).compare(this, media); 
+	}
+
+
+   Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+- Create another class with implement Comparator interface and define the compare method for DVDs.
+- In DVDs class, shadowing a variable with the same name of variable COMPARE_BY_COST_TITLE in the Media class but with the type we define above.
   
 *Lab03:
 

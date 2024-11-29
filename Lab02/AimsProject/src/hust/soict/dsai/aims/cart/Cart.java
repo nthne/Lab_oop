@@ -2,13 +2,14 @@ package hust.soict.dsai.aims.cart;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
 
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	public ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
 	public void addMedia(Media... itemsList) {
 		for(Media add_item : itemsList) {
@@ -74,6 +75,14 @@ public class Cart {
 				check = true;
 			}
 		if(check == false) System.out.println("No match is found");
+	}
+	
+	public void sort_by_title() {
+		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);		
+	}
+	
+	public void sort_by_cost() {
+		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);		
 	}
 	
 }
